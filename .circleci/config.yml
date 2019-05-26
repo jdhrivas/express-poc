@@ -4,8 +4,17 @@ jobs:
     docker:
       — image: circleci/node:7.10
     working_directory: ~/repo
+
+    branches:
+      only:
+        - master
     steps:
-      — checkout
-      - run: npm install
- 
-      — run: npm test
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            npm install
+      - run:
+          name: Test
+          command: |
+            npm test
