@@ -10,5 +10,9 @@ jobs: # a collection of steps
           name: npm install
           command: npm install
       - run: # run tests
-          name: npm test
+          name: Test
           command: npm test
+      - run:
+          # example curl request from dockerhub documentation
+          name: Trigger docker remotely
+          command: curl --data build=true -X POST $DOCKER_HUB_TRIGGER
